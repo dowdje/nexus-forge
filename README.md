@@ -6,7 +6,7 @@ A high-fidelity 3D platformer sandbox built with **Unity 6 (HDRP)**. Inspired by
 
 ## Prerequisites
 
-- **Unity 6000.1 LTS** (Unity 6) — install via [Unity Hub](https://unity.com/download)
+- **Unity 6000.3 LTS** (Unity 6.3) — install via [Unity Hub](https://unity.com/download)
 - **Git LFS** — `git lfs install` (required for binary assets)
 - **GitHub CLI** (`gh`) — optional, for CI/CD integration
 
