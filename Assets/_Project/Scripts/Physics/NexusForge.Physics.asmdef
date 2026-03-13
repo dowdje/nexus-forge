@@ -1,0 +1,16 @@
+{
+    "name": "NexusForge.Physics",
+    "rootNamespace": "NexusForge.Physics",
+    "references": [
+        "NexusForge.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

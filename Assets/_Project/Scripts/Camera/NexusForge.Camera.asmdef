@@ -1,0 +1,16 @@
+{
+    "name": "NexusForge.Camera",
+    "rootNamespace": "NexusForge.CameraSystem",
+    "references": [
+        "NexusForge.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

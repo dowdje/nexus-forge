@@ -1,0 +1,27 @@
+{
+    "name": "NexusForge.Editor",
+    "rootNamespace": "NexusForge.Editor",
+    "references": [
+        "NexusForge.Core",
+        "NexusForge.Character",
+        "NexusForge.Physics",
+        "NexusForge.Environment",
+        "NexusForge.Interaction",
+        "NexusForge.UI",
+        "NexusForge.AI",
+        "NexusForge.Camera",
+        "NexusForge.Audio",
+        "NexusForge.Utilities"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
