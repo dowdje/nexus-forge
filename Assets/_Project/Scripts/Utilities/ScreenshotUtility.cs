@@ -25,7 +25,7 @@ namespace NexusForge.Utilities
             System.IO.Directory.CreateDirectory(folder);
             string filename = $"NexusForge_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.png";
             string path = $"{folder}/{filename}";
-            ScreenCapture.CaptureScreenshot(path, _superSize);
+            UnityEngine.ScreenCapture.CaptureScreenshot(path, _superSize);
             Debug.Log($"[NexusForge] Screenshot saved: {path}");
         }
     }

@@ -2,7 +2,8 @@
     "name": "NexusForge.UI",
     "rootNamespace": "NexusForge.UI",
     "references": [
-        "NexusForge.Core"
+        "NexusForge.Core",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

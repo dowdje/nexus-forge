@@ -2,7 +2,8 @@
     "name": "NexusForge.Character",
     "rootNamespace": "NexusForge.Character",
     "references": [
-        "NexusForge.Core"
+        "NexusForge.Core",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

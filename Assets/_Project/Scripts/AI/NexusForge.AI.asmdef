@@ -2,7 +2,8 @@
     "name": "NexusForge.AI",
     "rootNamespace": "NexusForge.AI",
     "references": [
-        "NexusForge.Core"
+        "NexusForge.Core",
+        "Unity.AI.Navigation"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
