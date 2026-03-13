@@ -66,9 +66,13 @@ namespace NexusForge.UI
         /// <summary>Print a line to the console output.</summary>
         public void Log(string message)
         {
-            if (_outputText != null)
-                _outputText.text += message + "\n";
-            // TODO: Trim to _maxOutputLines
+            if (_outputText == null) return;
+            _outputText.text += message + "\n";
+
+            // Trim excess lines
+            var lines = _outputText.text.Split('\n');
+            if (lines.Length > _maxOutputLines)
+                _outputText.text = string.Join("\n", lines[(lines.Length - _maxOutputLines)..]);
         }
 
         /// <summary>Toggle console visibility.</summary>
