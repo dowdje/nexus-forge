@@ -13,16 +13,14 @@ A high-fidelity 3D platformer sandbox built with **Unity 6 (HDRP)**. Inspired by
 ## Quick Start
 
 ```bash
-# Clone with LFS
 git clone https://github.com/dowdje/nexus-forge.git
 cd nexus-forge
-
-# Open in Unity Hub
-# 1. Unity Hub > Open > select nexus-forge/
-# 2. Unity will import packages and generate .meta files (first open takes a few minutes)
-# 3. Open Assets/_Project/Scenes/Boot.unity
-# 4. Press Play
 ```
+
+1. **Open in Unity Hub** — Add > select the `nexus-forge/` folder
+2. Wait for package import and compilation (first open takes a few minutes)
+3. **Menu bar > NexusForge > Quick Start Setup** — creates Boot + Sandbox scenes with a player capsule, ground, platforms, lighting, and build settings
+4. **Press Play**
 
 ## Architecture
 
