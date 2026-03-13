@@ -1,6 +1,6 @@
 # Nexus Forge
 
-[![CI](https://github.com/spare1/nexus-forge/actions/workflows/ci.yml/badge.svg)](https://github.com/spare1/nexus-forge/actions/workflows/ci.yml)
+[![CI](https://github.com/dowdje/nexus-forge/actions/workflows/ci.yml/badge.svg)](https://github.com/dowdje/nexus-forge/actions/workflows/ci.yml)
 
 A high-fidelity 3D platformer sandbox built with **Unity 6 (HDRP)**. Inspired by Myst, Elder Scrolls, and Assassin's Creed — featuring advanced traversal mechanics, dynamic weather, day/night cycles, and physics-driven interactions.
 
@@ -14,7 +14,7 @@ A high-fidelity 3D platformer sandbox built with **Unity 6 (HDRP)**. Inspired by
 
 ```bash
 # Clone with LFS
-git clone https://github.com/spare1/nexus-forge.git
+git clone https://github.com/dowdje/nexus-forge.git
 cd nexus-forge
 
 # Open in Unity Hub
@@ -209,6 +209,32 @@ The player character uses a state machine with 13 states:
 | 16 | Water | Water volumes |
 | 17 | Projectile | Thrown/launched objects |
 | 18 | Ragdoll | Ragdoll physics bones |
+
+## CI/CD Setup (GitHub Actions + GameCI)
+
+The CI workflow uses [GameCI](https://game.ci/) to run tests and build for Windows, Linux, and macOS. **It requires a Unity license secret before it will pass.**
+
+### Personal License (free)
+
+1. In `.github/workflows/ci.yml`, uncomment the `activate` job
+2. Push — the workflow will produce a `.alf` artifact
+3. Download the `.alf` and upload it at https://license.unity3d.com/manual
+4. Unity returns a `.ulf` file — copy its **entire contents**
+5. Go to repo **Settings > Secrets and variables > Actions > New repository secret**
+6. Name: `UNITY_LICENSE`, Value: paste the `.ulf` contents
+7. Re-comment the `activate` job and push again
+
+### Professional / Plus License
+
+Set three repository secrets:
+
+| Secret | Value |
+|--------|-------|
+| `UNITY_EMAIL` | Your Unity account email |
+| `UNITY_PASSWORD` | Your Unity account password |
+| `UNITY_SERIAL` | Seat license serial (`XXXX-XXXX-XXXX-XXXX-XXXX`) |
+
+See the [GameCI activation docs](https://game.ci/docs/github/activation) for details.
 
 ## Post-Bootstrap Setup (Manual Unity Editor Steps)
 

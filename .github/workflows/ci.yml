@@ -6,10 +6,45 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+# ──────────────────────────────────────────────────────────────────────
+# Unity License Setup (required before CI will pass)
+#
+# GameCI needs a Unity license to run. Choose ONE of these methods:
+#
+# ── Personal License (free) ──
+#   1. Run the activation workflow below (or use game-ci/request-activation)
+#      to generate an .alf file
+#   2. Upload the .alf at https://license.unity3d.com/manual to get a .ulf
+#   3. Paste the ENTIRE .ulf file contents into a GitHub repo secret named
+#      UNITY_LICENSE  (Settings > Secrets and variables > Actions > New)
+#
+# ── Professional / Plus License ──
+#   Set these three GitHub secrets:
+#     UNITY_EMAIL    — your Unity account email
+#     UNITY_PASSWORD — your Unity account password
+#     UNITY_SERIAL   — your seat license serial (XXXX-XXXX-XXXX-XXXX-XXXX)
+#
+# Docs: https://game.ci/docs/github/activation
+# ──────────────────────────────────────────────────────────────────────
 
 jobs:
+  # ── Optional: one-time license activation ──────────────────────────
+  # Uncomment this job, push, download the .alf artifact, then upload
+  # it at https://license.unity3d.com/manual to get your .ulf file.
+  # After setting the UNITY_LICENSE secret, re-comment this job.
+  #
+  # activate:
+  #   name: Request Unity Activation File
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: game-ci/unity-request-activation-file@v2
+  #       id: getAlf
+  #     - uses: actions/upload-artifact@v4
+  #       with:
+  #         name: Unity_Activation_File
+  #         path: ${{ steps.getAlf.outputs.filePath }}
+
   test:
     name: Run Tests
     runs-on: ubuntu-latest
@@ -31,6 +66,11 @@ jobs:
 
       - uses: game-ci/unity-test-runner@v4
         id: tests
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
           testMode: ${{ matrix.testMode }}
           artifactsPath: TestResults
@@ -67,6 +107,11 @@ jobs:
             Library-
 
       - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
           buildName: NexusForge
